@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+
+    <color name="colorPrimary">#6495ed</color>
+    <color name="colorPrimaryDark">#6785ff</color>
+    <color name="colorAccent">#FF4CAF50</color>
+
+    <!--<color name="colorPrimary">#4CAF50</color>-->
+    <!--<color name="colorPrimaryDark">#388E3C</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <color name="puffGreen">#6495ed</color>
+    <color name="green">#47a24a</color>
+    <color name="tPuffGreen">#A0000000</color>
+<!--    -->
+<!--    <color name="puffGreen">#FF4CAF50</color>-->
+<!--    <color name="tPuffGreen">#A0000000</color>-->
+</resources>
