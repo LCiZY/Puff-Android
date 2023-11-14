@@ -13,11 +13,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import sun.bob.leela.R;
 import sun.bob.leela.adapters.AcctListAdapter;
 import sun.bob.leela.listeners.OnCardsScrollListener;
+import sun.bob.leela.ui.activities.DetailActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,6 +85,7 @@ public class AcctListFragment extends Fragment {
         adapter = new AcctListAdapter(getContext(), recyclerView);
         recyclerView.setAdapter(adapter);
         adapter.loadAccountsInCategory(category,searchKeyWord);
+        Toast.makeText(this.getContext(), "账户数量：" + adapter.getItemCount(), Toast.LENGTH_SHORT).show();
         recyclerView.addOnScrollListener(new OnCardsScrollListener(recyclerView));
 
         placeHolder = (CardView) ret.findViewById(R.id.placeholder);

@@ -1,14 +1,12 @@
 package sun.bob.leela.runnable;
 
 import android.content.Context;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import de.greenrobot.event.EventBus;
-import sun.bob.leela.events.DBExportEvent;
 import sun.bob.leela.events.DBImportEvent;
 import sun.bob.leela.utils.AppConstants;
 
@@ -52,6 +50,9 @@ public class DBImportRunnable implements Runnable {
             }
             fis.close();
             fos.close();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) { }
             EventBus.getDefault().post(new DBImportEvent(true, dest.getAbsolutePath(), null));
         } catch (IOException e) {
             e.printStackTrace();

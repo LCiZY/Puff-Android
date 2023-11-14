@@ -28,6 +28,8 @@ public class DBExportRunnable implements Runnable {
 //        dbDstPath = Environment.getExternalStorageDirectory() + "/data/data/leela/";
         dbDstPath = context.getExternalFilesDir(null).getPath() + File.separator + "export" +  File.separator;
         File dstPath = new File(dbDstPath);
+        dstPath.setReadable(true, false);
+        dstPath.setWritable(true, false);
         if (!dstPath.exists()) {
             dstPath.mkdirs();
         }
@@ -39,6 +41,8 @@ public class DBExportRunnable implements Runnable {
         try {
             File source = new File(dbSrcPath);
             File dest   = new File(dbDstPath);
+            dest.setReadable(true, false);
+            dest.setWritable(true, false);
             if (dest.exists()) {
                 dest.delete();
             } else {
