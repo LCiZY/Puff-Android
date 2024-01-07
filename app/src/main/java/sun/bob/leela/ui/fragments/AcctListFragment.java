@@ -85,7 +85,6 @@ public class AcctListFragment extends Fragment {
         adapter = new AcctListAdapter(getContext(), recyclerView);
         recyclerView.setAdapter(adapter);
         adapter.loadAccountsInCategory(category,searchKeyWord);
-        Toast.makeText(this.getContext(), "账户数量：" + adapter.getItemCount(), Toast.LENGTH_SHORT).show();
         recyclerView.addOnScrollListener(new OnCardsScrollListener(recyclerView));
 
         placeHolder = (CardView) ret.findViewById(R.id.placeholder);
