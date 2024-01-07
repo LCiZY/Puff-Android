@@ -26,21 +26,20 @@ public class DBExportRunnable implements Runnable {
         this.context = context;
         dbSrcPath = context.getDatabasePath(AppConstants.DB_NAME).getAbsolutePath();
 //        dbDstPath = Environment.getExternalStorageDirectory() + "/data/data/leela/";
-        dbDstPath = context.getExternalFilesDir(null).getPath() + File.separator + "export" +  File.separator;
+        dbDstPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + "puff_export"  + File.separator;
         File dstPath = new File(dbDstPath);
         dstPath.setReadable(true, false);
         dstPath.setWritable(true, false);
         if (!dstPath.exists()) {
             dstPath.mkdirs();
         }
-        dbDstPath += "database.db";
     }
 
     @Override
     public void run() {
         try {
             File source = new File(dbSrcPath);
-            File dest   = new File(dbDstPath);
+            File dest   = new File(dbDstPath + "puff.db");
             dest.setReadable(true, false);
             dest.setWritable(true, false);
             if (dest.exists()) {
@@ -61,6 +60,14 @@ public class DBExportRunnable implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
             EventBus.getDefault().post(new DBExportEvent(false, null));
+        }
+
+        try {
+            File nomedia   = new File(dbDstPath + ".nomedia");
+            if (!nomedia.exists()) {
+                nomedia.createNewFile();
+            }
+        }catch (Exception e){
         }
 
     }
